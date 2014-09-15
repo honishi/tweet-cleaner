@@ -1,0 +1,10 @@
+# python
+*.pyc
+
+# intellij
+.idea/
+
+# application
+log/
+clean.configuration*
+!clean.configuration.sample

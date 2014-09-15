@@ -1,0 +1,50 @@
+[clean]
+target_users = aaa,bbb
+
+[aaa]
+clean_interval = 60 * 60
+clean_threshold = 24 * 7 * 60 * 60
+# @aaa
+consumer_key = xxx
+consumer_secret = xxx
+access_key = xxx
+access_secret = xxx
+
+[bbb]
+clean_interval = 60 * 60
+clean_threshold = 24 * 7 * 60 * 60
+# @bbb
+consumer_key = xxx
+consumer_secret = xxx
+access_key = xxx
+access_secret = xxx
+
+[loggers]
+keys=root
+
+[logger_root]
+level=NOTSET
+handlers=root
+# handlers=stdout
+
+[handlers]
+keys=root,stdout
+
+[handler_root]
+class=handlers.RotatingFileHandler
+level=NOTSET
+formatter=default
+args=(os.getcwd() + "/log/clean.log", 'a', (100*1024*1024), 9)
+
+[handler_stdout]
+class=StreamHandler
+level=NOTSET
+formatter=default
+args=(sys.stdout,)
+
+[formatters]
+keys=default
+
+[formatter_default]
+format=[%(asctime)s] [%(levelname)s] [%(threadName)s] %(message)s
+datefmt=
