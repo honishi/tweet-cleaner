@@ -8,3 +8,5 @@
 log/
 clean.configuration*
 !clean.configuration.sample
+clean.env*
+!clean.env.sample
